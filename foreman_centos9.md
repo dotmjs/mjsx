@@ -3,12 +3,12 @@ Installing Foreman on CentOS Stream 9 for managing my lab
 
 ## Prerequisites:
 1. Install CentOS Stream 9
- * static IP address
- * minimal server
- * default disk layout
- * with a root password
- * allow root access via SSH
-
+  * static IP address
+  * minimal server
+  * default disk layout
+  * with a root password
+  * allow root access via SSH
+ 
 ## Install Foreman without Puppet, and with Ansible and Katello
 1. ssh into server as root
 1. `dnf -y update`
