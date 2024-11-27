@@ -8,6 +8,7 @@
 * {TEMPPW}
 
 ## Equipment
+* (Optional) One temporary laptop with sufficient memory for 2 VMs
 * 3x Compute Nodes
 * 1x (or more) Control Node(s)
 * 1x provisioning subnet
