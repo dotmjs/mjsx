@@ -6,6 +6,7 @@
 * NET-PUBLIC = 172.24.32.0/24
 * {VAULTPW}
 * {TEMPPW}
+
 ## Equipment
 * 3x Compute Nodes
 * 1x (or more) Control Node(s)
@@ -64,7 +65,7 @@ _Bootstrap Node could be a compute node, a laptop, etc, that will be unused afte
 1. Deploy ipa-0 as a VM on bootstrap
 	* ipa-0.{DOMAIN}
 	* Bridged NIC
-	* Minimal CentOS Stream 9		
+	* Minimal CentOS Stream 9
 	* Static IP on {NET-PROV}
 	* default disk layout
 	* Root password = {TEMPPW}
@@ -75,7 +76,7 @@ _Bootstrap Node could be a compute node, a laptop, etc, that will be unused afte
 2. Deploy ops-0 as a VM on bootstrap
 	* ops-0.{DOMAIN}
 	* Bridged NIC
-	* Install CentOS Stream 9		
+	* Install CentOS Stream 9
 	* Static IP on {NET-PROV}
 	* default disk layout
 	* Root password = {TEMPPW}
