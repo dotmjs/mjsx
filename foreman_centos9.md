@@ -58,8 +58,8 @@ foreman-installer --scenario katello \
 --foreman-proxy-bmc=true \
 ;
 ```
-1. Create subnet
+1. `cat /usr/share/foreman-proxy/.ssh/id_rsa_foreman_proxy.pub >> /root/.ssh/authorized_keys`
+2. Create subnet
 1. Create hostgroup
 1. link OS, media, kickstart, pxe templates
-1. copy foreman-proxy ssh key to foreman's root ssh authorized_keys
 1. add foreman host object to subnet
