@@ -53,12 +53,13 @@
 * Can rebuild entire control plane from Ansible playbooks, using a temporary bootstrap node and single control plane server
 
 ### Bootstrap Node => Control Node ###
-_Bootstrap Node could be a compute node, a laptop, etc, that will be unused after installation_
+_Bootstrap Node could be a compute node, a laptop, etc, that will be unused (or reused for something else) after installation.  Bootstrap node must be running CentOS (though Fedora may also work), and root access must be allowed to install VMs on libvirt and connect to network via network bridge._
 
 #### Manual Steps
 1. Prep the Bootstrap Node
-	* FQDN unimportant, as long as reachable via SSH
-	* Must have libvirt
+	* CentOS 9
+ 	* FQDN unimportant
+  	* Access configured as root via SSH with ssh keys
 	* Must have Ansible
 	* copy (git clone) these ansible playbooks
 
