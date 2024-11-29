@@ -77,6 +77,7 @@ _Bootstrap Node could be a compute node, a laptop, etc, that will be unused (or 
 	* DNS Reverse Lookup {NET-PROV}
 2. Deploy ops-0 as a VM on bootstrap
 	* ops-0.{DOMAIN}
+	* 20GB RAM
 	* Bridged NIC
 	* Install CentOS Stream 9
 	* Static IP on {NET-PROV}
