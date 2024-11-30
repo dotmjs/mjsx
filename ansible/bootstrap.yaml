@@ -4,8 +4,10 @@
   remote_user: root
 
   tasks:
-  - name: Ensure libvirt is installed, and at latest version
+  - name: Ensure supporting packages are installed, and at latest version
     ansible.builtin.dnf:
       name:
         - libvirt-daemon-kvm
+        - ansible-core
+        - git
       state: latest
