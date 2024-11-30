@@ -62,7 +62,7 @@ _Bootstrap Node could be a compute node, a laptop, etc, that will be unused (or 
   	* Access configured as root via SSH with ssh keys
 	* `dnf -y install git ansible-core`
 	* copy (git clone) these ansible playbooks
-	* 
+	* `cd /root/; git clone https://github.com/dotmjs/mjsx.git`
 
 #### Automatic Ansible
 1. Deploy ipa-0 as a VM on bootstrap
