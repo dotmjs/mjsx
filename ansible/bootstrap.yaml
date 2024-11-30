@@ -20,6 +20,8 @@
 - name: Create bootstrap IPA
   hosts: bootstrap
   remote_user: root
+  
+  tasks:
   - name: Create IPA VM
     community.libvirt.virt:
       command: define
