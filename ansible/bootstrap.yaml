@@ -17,8 +17,11 @@
       enabled: true
       state: started
 
-- name: Create IPA VM
-  community.libvirt.virt:
-    command: define
-    xml: "{{ lookup('template', 'vm_template.xml.j2') }}"
-    autostart: true
+- name: Create bootstrap IPA
+  hosts: bootstrap
+  remote_user: root
+  - name: Create IPA VM
+    community.libvirt.virt:
+      command: define
+      xml: "{{ lookup('template', 'vm_template.xml.j2') }}"
+      autostart: true
