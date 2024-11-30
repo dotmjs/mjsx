@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ansible 
-ansible-playbook -i inventory bootstrap.yml
 ansible-galaxy install -r requirements.yml
+ansible-playbook -i inventory bootstrap.yml
