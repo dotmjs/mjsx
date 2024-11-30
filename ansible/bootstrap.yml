@@ -8,8 +8,9 @@
     ansible.builtin.dnf:
       name:
         - libvirt-daemon-kvm
-        - ansible-core
         - git
+        - ansible-core
+        - ansible-freeipa
       state: latest
   - name: Enable libvirt daemon
     service:
