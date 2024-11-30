@@ -14,7 +14,7 @@
       state: latest
   - name: Enable libvirt daemon
     service:
-      name: libvirt
+      name: libvirtd
       enabled: true
       state: started
 
