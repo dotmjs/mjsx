@@ -11,3 +11,14 @@
         - ansible-core
         - git
       state: latest
+  - name: Enable libvirt daemon
+    service:
+      name: libvirt
+      enabled: true
+      state: started
+
+- name: Create IPA VM
+  community.libvirt.virt:
+    command: define
+    xml: "{{ lookup('template', 'vm_template.xml.j2') }}"
+    autostart: true
