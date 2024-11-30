@@ -60,8 +60,9 @@ _Bootstrap Node could be a compute node, a laptop, etc, that will be unused (or 
 	* CentOS 9
  	* FQDN unimportant
   	* Access configured as root via SSH with ssh keys
-	* Must have Ansible
+	* `dnf -y install git ansible-core`
 	* copy (git clone) these ansible playbooks
+	* 
 
 #### Automatic Ansible
 1. Deploy ipa-0 as a VM on bootstrap

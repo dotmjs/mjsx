@@ -1,0 +1,11 @@
+---
+- name: Prep bootstrap system
+  hosts: bootstrap
+  remote_user: root
+
+  tasks:
+  - name: Ensure libvirt is installed, and at latest version
+    ansible.builtin.dnf:
+      name:
+        - libvirt-daemon-kvm
+      state: latest
