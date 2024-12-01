@@ -3,6 +3,7 @@
     name:
       - libvirt-daemon-kvm
       - tuned
+      - genisoimage
     state: latest
 
 - name: Enable libvirt daemon

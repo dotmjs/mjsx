@@ -1,0 +1,7 @@
+users:
+  - name: ansible
+    ssh_authorized_keys:
+      - ssh-rsa {{ SSH_KEYS }}
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    groups: sudo
+    shell: /bin/bash

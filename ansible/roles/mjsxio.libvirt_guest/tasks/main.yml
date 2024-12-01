@@ -7,11 +7,8 @@
     group: qemu
   delegate_to: "{{ libvirt_host }}"
 
-# # - name: Adjust permissions
-# #   file: state=file path="{{ hostvars[libvirt_host].libvirt_storage_dir }}/{{ install_media.split("/")[-1] }}" owner=qemu group=qemu mode=0644
-# #   delegate_to: "{{ hostvars[libvirt_host].ansible_host | default(libvirt_host) }}"
+- fail: msg="fail here"
 
-# # - fail: msg="fail here"
 
 # # - block: #Create Kickstart media
 
