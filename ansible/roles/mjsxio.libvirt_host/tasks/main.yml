@@ -1,8 +1,8 @@
 - name: Install libvirt related packages
   ansible.builtin.dnf:
-    name:: state=latest
+    name:
       - libvirt-daemon-kvm
-
+    state: latest
 
   - name: Enable libvirt daemon
     service:
