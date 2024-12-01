@@ -3,7 +3,7 @@
   get_url:
     url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
     dest: "CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
-    checksum: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM"
+    checksum: "{{ lookup('url', 'https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM') }}"
   delegate_to: "{{ libvirt_host }}"
 
 # - name: Copy install media to libvirt host
