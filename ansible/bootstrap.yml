@@ -11,6 +11,7 @@
         - git
         - ansible-core
         - ansible-freeipa
+        - cockpit
         - cockpit-machines
       state: latest
 
