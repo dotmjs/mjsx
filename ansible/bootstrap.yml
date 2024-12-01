@@ -11,10 +11,17 @@
         - git
         - ansible-core
         - ansible-freeipa
+        - cockpit-machines
       state: latest
+
   - name: Enable libvirt daemon
     service:
       name: libvirtd
+      enabled: true
+      state: started
+  - name: Enable cockpit service
+    service:
+      name: cockpit
       enabled: true
       state: started
 
