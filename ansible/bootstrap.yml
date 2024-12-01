@@ -27,4 +27,5 @@
   remote_user: root
   roles:
     - role: mjsxio.libvirt_guest
+  gather_facts: no
   
