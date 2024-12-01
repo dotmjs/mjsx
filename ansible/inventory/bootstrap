@@ -1,1 +1,4 @@
 bootstrap ansible_connection=local
+
+ipa-0 libvirt_host=bootstrap  
+foreman-0 libvirt_host=bootstrap

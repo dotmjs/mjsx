@@ -9,7 +9,6 @@
   - name: Ensure supporting packages are installed, and at latest version
     ansible.builtin.dnf:
       name:
-        - libvirt-daemon-kvm
         - git
         - ansible-core
         - ansible-freeipa
@@ -24,12 +23,8 @@
       state: started
 
 - name: Create bootstrap IPA
-  hosts: bootstrap
+  hosts: ipa-0
   remote_user: root
-  
-  tasks:
-  - name: Create IPA VM
-    community.libvirt.virt:
-      command: define
-      xml: "{{ lookup('template', 'vm_template.xml.j2') }}"
-      autostart: true
+  roles:
+    - role: mjsxio.libvirt_guest
+    
