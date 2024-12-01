@@ -4,13 +4,13 @@
       - libvirt-daemon-kvm
     state: latest
 
-  - name: Enable libvirt daemon
-    service:
-      name: libvirtd
-      enabled: true
-      state: started
+- name: Enable libvirt daemon
+  service:
+    name: libvirtd
+    enabled: true
+    state: started
 
-  - ansible.builtin.include_role:
-    name: linux-system-roles.tuned
-    vars:
-      profile: virtual-host
+- ansible.builtin.include_role:
+  name: linux-system-roles.tuned
+  vars:
+    profile: virtual-host
