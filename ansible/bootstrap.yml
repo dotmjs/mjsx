@@ -17,7 +17,7 @@
       state: latest
 
   - name: Enable cockpit service
-    service:
+    ansible.builtin.systemd_service:
       name: cockpit
       enabled: true
       state: started
