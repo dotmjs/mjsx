@@ -2,7 +2,7 @@
   get_url:
     url: "{{ QCOW_URL }}"
     dest: "{{ hostvars[libvirt_host].libvirt_image_dir }}/{{ QCOW_NAME }}"
-    checksum: "{{ QCOW_CHECKSUM_TYPE }}:{{ ( lookup('ansible.builtin.url', {{ QCOW_CHECKSUM_URL }}) | regex_search( {{ QCOW_CHECKSUM_REGEX }}, '\\1') )[0] }}"
+    checksum: "{{ QCOW_CHECKSUM_TYPE }}:{{ ( lookup('ansible.builtin.url',  QCOW_CHECKSUM_URL ) | regex_search(  QCOW_CHECKSUM_REGEX , '\\1') )[0] }}"
     owner: qemu
     group: qemu
   delegate_to: "{{ libvirt_host }}"
