@@ -3,20 +3,10 @@
     url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
     dest: "{{ hostvars[libvirt_host].libvirt_image_dir }}/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
     checksum: "sha256:{{ ( lookup('ansible.builtin.url', 'https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM') | regex_search('SHA256.*= (.*)$', '\\1') )[0] }}"
+    owner: qemu
+    group: qemu
   delegate_to: "{{ libvirt_host }}"
 
-# - name: Copy install media to libvirt host
-#   copy: src="{{ iso }}" dest="{{ hostvars[libvirt_host].libvirt_storage_dir }}"
-#   delegate_to: "{{ hostvars[libvirt_host].ansible_host | default(libvirt_host) }}"
-
-# # - name: Copy install media to libvirt host
-# #   synchronize: src="{{ iso }}" dest="{{ hostvars[libvirt_host].ansible_host | default(libvirt_host) }}:{{ hostvars[libvirt_host].libvirt_storage_dir }}"
-# #   delegate_to: localhost
-# # #
-# # - name: Copy install media to libvirt host
-# #   command: scp {{ install_media }} {{ ( libvirt_host+":" if not( libvirt_host=="localhost" ) else "" ) + hostvars[libvirt_host].libvirt_storage_dir }}
-# #   delegate_to: localhost
-# #
 # # - name: Adjust permissions
 # #   file: state=file path="{{ hostvars[libvirt_host].libvirt_storage_dir }}/{{ install_media.split("/")[-1] }}" owner=qemu group=qemu mode=0644
 # #   delegate_to: "{{ hostvars[libvirt_host].ansible_host | default(libvirt_host) }}"
