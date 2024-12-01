@@ -18,4 +18,4 @@
 
 - name: Set tuned profile to virtual-host
   command: tuned-adm profile virtual-host
-  when: "{{ profile != 'Current active profile: virtual-host' }}"
+  when: "profile != 'Current active profile: virtual-host'"
