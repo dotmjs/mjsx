@@ -1,10 +1,13 @@
 
-- name: Download
-  get_url:
-    url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
-    dest: "CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
-    checksum: "{{ lookup('url', 'https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM') }}"
-  delegate_to: "{{ libvirt_host }}"
+- name: display checksum
+  ansible.builtin.debug: msg="{{ lookup('ansible.builtin.url', 'https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM') }}"
+
+# - name: Download
+#   get_url:
+#     url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
+#     dest: "CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
+#     checksum: "{{ lookup('url', ) }}"
+#   delegate_to: "{{ libvirt_host }}"
 
 # - name: Copy install media to libvirt host
 #   copy: src="{{ iso }}" dest="{{ hostvars[libvirt_host].libvirt_storage_dir }}"
