@@ -3,7 +3,7 @@
   hosts: bootstrap
   remote_user: root
   roles:
-    - role: mjsxio.el7_libvirt_host
+    - role: mjsxio.libvirt_host
 
   tasks:
   - name: Ensure supporting packages are installed, and at latest version
@@ -17,11 +17,6 @@
         - cockpit-machines
       state: latest
 
-  - name: Enable libvirt daemon
-    service:
-      name: libvirtd
-      enabled: true
-      state: started
   - name: Enable cockpit service
     service:
       name: cockpit

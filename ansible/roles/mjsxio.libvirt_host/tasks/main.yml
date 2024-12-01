@@ -1,0 +1,16 @@
+- name: Install libvirt related packages
+  ansible.builtin.dnf:
+    name:: state=latest
+      - libvirt-daemon-kvm
+
+
+  - name: Enable libvirt daemon
+    service:
+      name: libvirtd
+      enabled: true
+      state: started
+
+  - ansible.builtin.include_role:
+    name: linux-system-roles.tuned
+    vars:
+      profile: virtual-host

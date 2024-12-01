@@ -1,3 +1,5 @@
 collections:
   # Install libvirt community collection
   - name: community.libvirt
+roles:
+  - name: linux-system-roles.tuned
