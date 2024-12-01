@@ -1,12 +1,7 @@
-
-# - name: fetch checksum
-#   vars:
-#     checksum: "sha256:{{ ( lookup('ansible.builtin.url', 'https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM') | regex_search('SHA256.*= (.*)$', '\\1') )[0] }}"
-
 - name: Download
   get_url:
     url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
-    dest: "/root/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
+    dest: "{{ hostvars[libvirt_host].libvirt_storage_dir }}/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
     checksum: "sha256:{{ ( lookup('ansible.builtin.url', 'https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM') | regex_search('SHA256.*= (.*)$', '\\1') )[0] }}"
   delegate_to: "{{ libvirt_host }}"
 
