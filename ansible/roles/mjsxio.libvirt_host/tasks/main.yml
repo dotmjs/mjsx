@@ -16,8 +16,6 @@
   register: profile
   changed_when: false
 
-- debug: msg="{{ profile }}"
-
 - name: Set tuned profile to virtual-host
   command: tuned-adm profile virtual-host
   when: "profile.stdout != 'Current active profile: virtual-host'"
