@@ -2,6 +2,7 @@
   ansible.builtin.dnf:
     name:
       - libvirt-daemon-kvm
+      - tuned
     state: latest
 
 - name: Enable libvirt daemon
@@ -10,7 +11,11 @@
     enabled: true
     state: started
 
-- ansible.builtin.include_role:
-    name: linux-system-roles.tuned
-  vars:
-    profile: virtual-host
+- name: Get current tuned profile
+  command: tuned-adm active
+  register: profile
+  changed_when: false
+
+- name: Set tuned profile to virtual-host
+  command: tuned-adm profile virtual-host
+  when: "{{ profile != 'Current active profile: virtual-host' }}"
