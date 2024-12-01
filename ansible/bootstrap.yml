@@ -2,6 +2,8 @@
 - name: Prep bootstrap system
   hosts: bootstrap
   remote_user: root
+  roles:
+    - role: mjsxio.el7_libvirt_host
 
   tasks:
   - name: Ensure supporting packages are installed, and at latest version
