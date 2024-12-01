@@ -1,8 +1,15 @@
+vars:
+  QCOW_URL: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
+  QCOW_NAME: "CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
+  QCOW_CHECKSUM_TYPE: "sha256"
+  QCOW_CHECKSUM_URL: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM"
+  QCOW_CHECKSUM_REGEX: "SHA256.*= (.*)$"
+  
 - name: Download
   get_url:
-    url: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
-    dest: "{{ hostvars[libvirt_host].libvirt_image_dir }}/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
-    checksum: "sha256:{{ ( lookup('ansible.builtin.url', 'https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM') | regex_search('SHA256.*= (.*)$', '\\1') )[0] }}"
+    url: "{{ QCOW_URL }}"
+    dest: "{{ hostvars[libvirt_host].libvirt_image_dir }}/{{ QCOW_NAME }}"
+    checksum: "{{ QCOW_CHECKSUM_TYPE }}:{{ ( lookup('ansible.builtin.url', {{ QCOW_CHECKSUM_URL }}) | regex_search( {{ QCOW_CHECKSUM_REGEX }}, '\\1') )[0] }}"
     owner: qemu
     group: qemu
   delegate_to: "{{ libvirt_host }}"
