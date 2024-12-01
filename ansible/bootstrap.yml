@@ -28,4 +28,10 @@
   roles:
     - role: mjsxio.libvirt_guest
   gather_facts: no
+  vars:
+    QCOW_URL: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
+    QCOW_NAME: "CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2"
+    QCOW_CHECKSUM_TYPE: "sha256"
+    QCOW_CHECKSUM_URL: "https://cloud.centos.org/centos/9-stream/x86_64/images/CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2.SHA256SUM"
+    QCOW_CHECKSUM_REGEX: "SHA256.*= (.*)$"
   
